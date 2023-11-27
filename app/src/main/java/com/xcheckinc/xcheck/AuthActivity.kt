@@ -33,6 +33,12 @@ class AuthActivity : AppCompatActivity() {
                     Toast.makeText(this, "Пользователь $UserLogin Авторизован", Toast.LENGTH_SHORT).show()
                     formUserLoginAuth.text.clear()
                     formUserPasswordAuth.text.clear()
+
+                    val intent = Intent(this, MainAuthActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                    startActivity(intent)
+                    finish()
+
                 }else{
                     Toast.makeText(this, "Пользователь $UserLogin Не Авторизован", Toast.LENGTH_SHORT).show()
                 }
@@ -41,8 +47,10 @@ class AuthActivity : AppCompatActivity() {
         }
 
         linkToReg.setOnClickListener {
-            val intent = Intent(this,MainActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
+            finish()
         }
     }
 }

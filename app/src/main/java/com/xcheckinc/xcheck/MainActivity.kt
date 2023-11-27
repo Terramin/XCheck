@@ -17,8 +17,10 @@ class MainActivity : AppCompatActivity() {
         val linkToAuth: TextView = findViewById(R.id.linkToAuth)
 
         linkToAuth.setOnClickListener {
-            val intent = Intent(this,AuthActivity::class.java)
+            val intent = Intent(this, AuthActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
+            finish()
         }
 
         val formUserPassword = findViewById<EditText>(R.id.edittextPassword)
