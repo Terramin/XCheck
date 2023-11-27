@@ -24,6 +24,13 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Необходимо заполнить все поля", Toast.LENGTH_LONG).show()
             } else {
                 val user = User(UserLogin, UserPassword)
+
+                val db = DBHelper(this, null)
+                db.addUser(user)
+                Toast.makeText(this, "Пользователь $UserLogin Добавлен", Toast.LENGTH_SHORT).show()
+
+                formUserLogin.text.clear()
+                formUserPassword.text.clear()
             }
         }
     }

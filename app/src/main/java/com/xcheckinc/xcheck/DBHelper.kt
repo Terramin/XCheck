@@ -16,5 +16,13 @@ class DBHelper(val context:Context, val factory:SQLiteDatabase.CursorFactory?): 
         onCreate(db)
     }
     fun addUser(user: User){
-        val values = ContentValues()}
+        val values = ContentValues()
+    values.put("login", user.login)
+        values.put("password", user.password)
+
+        val db = this.writableDatabase
+        db.insert("users", null, values)
+
+        db.close()
+    }
 }
